@@ -4,7 +4,7 @@ body {
   width: 100vw;
   height: 100vh;
   margin: 0;
-  background-image: url("https://logrospublicitarios.com/clientes/elcafetal/wp-content/uploads/2017/12/blurred-background-10-768x480.jpg");
+  background-image: url("assets/bg.jpg");
   background-size: cover;
 }
 
@@ -20,12 +20,13 @@ body {
   width: 250px;
   margin-bottom: 25px;
 }
+
 .Login {
   text-align: center;
   border: 0px solid #333;
   border-radius: 3px;
   width: 100%;
-  max-width: 400px;
+  max-width: 350px;
   background: rgba(0, 0, 0, 0.3);
   padding: 30px 20px;
 }
@@ -40,16 +41,20 @@ input {
   font-size: 18px;
   margin-bottom: 20px;
   color: #fff;
+  font-family: "Roboto Condensed";
 }
 
 button:focus,
 input:focus {
   outline: none;
 }
+
 label {
   text-align: left;
   display: block;
   color: #fff;
+  font-size: 18px;
+  font-weight: 100;
 }
 
 button {
@@ -58,6 +63,12 @@ button {
   width: 100%;
   border: 0;
   padding: 17px;
-  font-size: 17px;
+  font-size: 19px;
   font-weight: 100;
+  font-family: "Roboto Condensed";
+}
+
+button:disabled {
+  background: #ccc;
+  color: #fff;
 }

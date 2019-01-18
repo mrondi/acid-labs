@@ -1,19 +1,22 @@
 import React, { Component } from "react";
-import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-//import "./Login.css";
 
 export default class Login extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      email: "mauroro",
+      email: "",
       password: ""
     };
   }
 
   validateForm() {
-    return this.state.email.length > 0 && this.state.password.length > 0;
+    const rule = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    return (
+      rule.test(this.state.email.toLowerCase()) &&
+      this.state.password.length > 4
+    );
   }
 
   handleChange = event => {
@@ -29,30 +32,31 @@ export default class Login extends Component {
   render() {
     return (
       <div className="Login">
-        <img
-          className="logo"
-          src="http://acid.cl/wp-content/uploads/2018/01/LOGO-ACID-white.png"
-        />
+        <img className="logo" src="assets/logo.png" />
         <form onSubmit={this.handleSubmit}>
           <div>
             <label>Email</label>
             <input
-              autoFocus
+              id="email"
               type="email"
               value={this.state.email}
               onChange={this.handleChange}
+              autoComplete="off"
+              autoFocus
             />
           </div>
           <div>
             <label>Password</label>
             <input
+              id="password"
               value={this.state.password}
               onChange={this.handleChange}
               type="password"
+              autoComplete="off"
             />
           </div>
           <button disabled={!this.validateForm()} type="submit">
-            Login
+            Ingresar
           </button>
         </form>
       </div>
